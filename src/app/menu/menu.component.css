@@ -1,0 +1,20 @@
+.layoutMenu {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    box-shadow: -20px 4px 35px 0 rgba(0, 0, 0, .3);
+    z-index: 1001;
+}
+
+ul {
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.menuicon {
+    width: 80px;
+}
