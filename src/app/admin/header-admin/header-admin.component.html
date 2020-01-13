@@ -1,0 +1,39 @@
+<div class="container">
+    <nav id="fixNav">
+        <ul>
+            <li><button (click)="openModal('custom-modal-1')">Thêm tài khoản</button></li>
+        </ul>
+    </nav>
+    <jw-modal id="custom-modal-1">
+        <div class="content">
+            <h2>register</h2>
+            <form>
+                <div class="form-group">
+                    <label>Full Name:</label>
+                    <input type="text" id="fullName" class="form-control" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" id="email" class="form-control" name="email" [(ngModel)]="email" required email>
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" id="password" class="form-control" name="password" [(ngModel)]="password" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone:</label>
+                    <input type="tel" id="phone" class="form-control" name="phone" [(ngModel)]="phone" required>
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <select id="role" class="form-control" name="role" [(ngModel)]="role">
+                        <option value = "user" >User</option>   
+                        <option value = "admin" >Admin</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" type="submit" (click)="onAddAccount()">Register</button>
+            </form>
+            <button class="btn btn-danger" (click)="closeModal('custom-modal-1');">Close</button>
+        </div>
+    </jw-modal>
+</div>

@@ -12,11 +12,14 @@
     /*Nằm sát bên trái*/
     z-index: 100000;
     /*Hiển thị lớp trên cùng*/
+    display: block;
+    padding-bottom: 50px;
 }
 
 #fixNav ul {
     margin: 0;
     padding: 0;
+    float: right;
 }
 
 #fixNav ul li {
@@ -45,4 +48,8 @@
 #fixNav ul li:hover {
     /* Hover thì li sẽ đổi màu*/
     background-color: lightblue;
+}
+
+div.content {
+    padding-top: 35px;
 }

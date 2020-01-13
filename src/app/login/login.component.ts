@@ -2,42 +2,46 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { NgForm, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CssSelector } from '@angular/compiler';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
   @ViewChild('f', { static: false }) loginForm: NgForm;
-  users = [{username: 'user' , password:'1', type: 'user'}];
-  admins = [{username: 'admin' , password:'1', type: 'admin'}];
-  // roles =[{id: 1,name:'admin'},{id: 2,name:'user'}];
-  constructor(private router: Router) { }
-  role = '';
+
+  email: string = '';
+  password: string = '';
+  constructor(private router: Router,
+    private loginService: LoginService) { }
+  role = '';;
+  auth: any;
   ngOnInit() {
   }
 
-  onSubmit(form: NgForm){
-    console.log(this.role)
- 
-    if(this.role === 'user'){
-      this.users.forEach((user) => {
-        if(user.username === this.loginForm.value.userName && user.password === this.loginForm.value.password){
-          this.router.navigate(['user'])
-        }else{
-          this.router.navigate(['404'])
+  onSubmit(form: NgForm) {
+    console.log(this.email);
+    console.log(this.password);
+    this.loginService.login(this.email, this.password).subscribe(
+      resp => {
+        //snackBarRef.dismiss();
+        
+        this.auth = resp.body;
+        console.log(this.auth.role);
+        localStorage.setItem("userInfor",JSON.stringify(resp.body));
+        if(this.auth.role === 'admin'){
+          this.router.navigate(['admin']);
         }
-      })
-    }else{
-      this.admins.forEach((admin) => {
-        if(admin.username === this.loginForm.value.userName && admin.password === this.loginForm.value.password){
-          this.router.navigate(['admin'])
-        }else{
-          this.router.navigate(['404'])
+        else if(this.auth.role === 'user'){
+          this.router.navigate(['user']);
         }
-      })
-    }
-    // this.router.navigate([rountingLink]);
+        else{
+          alert('Thong tin dang nhap khong chinh xac');
+        }
+      }
+    )
   }
 }

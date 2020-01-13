@@ -15,6 +15,11 @@ ul {
     justify-content: center;
 }
 
-.menuicon {
+img.menuicon {
     width: 80px;
+}
+
+li:hover {
+    background-color: lightblue;
+    border-radius: 50%;
 }

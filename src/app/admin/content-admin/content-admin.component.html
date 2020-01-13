@@ -1,0 +1,16 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" *ngFor="let column of headers">
+                {{column}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of accounts">
+            <td scope="row" *ngFor="let column of headers">
+                {{row[column]}}
+            </td>
+        </tr>
+    </tbody>
+</table>

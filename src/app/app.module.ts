@@ -10,6 +10,11 @@ import { AdminComponent } from './admin/admin.component';
 import { Error404Component } from './error404/error404.component';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
+import { ContentComponent } from './content/content.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HeaderAdminComponent } from './admin/header-admin/header-admin.component';
+import { ModalModule } from './_modal';
+import { ContentAdminComponent } from './admin/content-admin/content-admin.component';
 
 const appRoutes: Routes = [
   { path:'', component: LoginComponent },
@@ -26,14 +31,19 @@ const appRoutes: Routes = [
     AdminComponent,
     Error404Component,
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    ContentComponent,
+    HeaderAdminComponent,
+    ContentAdminComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
+    ModalModule,
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
