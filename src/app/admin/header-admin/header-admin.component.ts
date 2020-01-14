@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from './account.service';
+import { AccountService } from './header-admin.service';
 import { ModalService } from '../../_modal';
 import { from } from 'rxjs';
 @Component({
@@ -10,11 +10,8 @@ import { from } from 'rxjs';
 })
 export class HeaderAdminComponent implements OnInit {
 
-  fullname: string = '';
-  email: string = '';
-  password: string = '';
-  phone: string = '';
-  role: string = '';
+  detailItem: any = { fullname: '', email: '', password: '', phone: '', role: '' };
+  listItem: any = [];
   constructor(private accountService: AccountService,
     private modalService: ModalService) { }
 
@@ -29,11 +26,9 @@ export class HeaderAdminComponent implements OnInit {
     this.modalService.close(id);
   }
 
-  onAddAccount() {
-    this.accountService.register(this.fullname, this.email, this.password, this.phone, this.role).subscribe(
-      resp => {
-        localStorage.setItem("userInfor", JSON.stringify(resp.body));
-      }
-    )
+  layDsUser() {
+
   }
+
+ 
 }

@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   auth: any;
   ngOnInit() {
   }
+  
 
   onSubmit(form: NgForm) {
     console.log(this.email);
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
         this.auth = resp.body;
         console.log(this.auth.role);
         localStorage.setItem("userInfor",JSON.stringify(resp.body));
+        localStorage.setItem("token",this.auth.token);
         if(this.auth.role === 'admin'){
           this.router.navigate(['admin']);
         }

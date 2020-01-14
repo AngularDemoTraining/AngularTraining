@@ -15,6 +15,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderAdminComponent } from './admin/header-admin/header-admin.component';
 import { ModalModule } from './_modal';
 import { ContentAdminComponent } from './admin/content-admin/content-admin.component';
+import { MenuAdminComponent } from './admin/menu-admin/menu-admin.component';
 
 const appRoutes: Routes = [
   { path:'', component: LoginComponent },
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
     ContentComponent,
     HeaderAdminComponent,
     ContentAdminComponent,
+    MenuAdminComponent,
   ],
   imports: [
     BrowserModule,
