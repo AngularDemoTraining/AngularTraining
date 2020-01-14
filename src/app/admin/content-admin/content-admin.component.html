@@ -1,6 +1,6 @@
 <div class="container">
-    <button (click)="openModal('custom-modal-1')">Thêm tài khoản</button>
-    <button (click)="openModal('custom-modal-2')">Đổi mật khẩu</button>
+    <button class="btn btn-outline-primary" (click)="onCreate()">Thêm tài khoản</button>
+    <button class="btn btn-outline-primary" (click)="openModal('custom-modal-2')">Đổi mật khẩu</button>
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -9,6 +9,7 @@
                 <th scope="col">phone</th>
                 <th scope="col">fullname</th>
                 <th scope="col">role</th>
+                <th scope="col">#</th>
             </tr>
         </thead>
         <tbody>
@@ -18,6 +19,10 @@
                 <td>{{row.phone}}</td>
                 <td>{{row.fullname}}</td>
                 <td>{{row.role}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="AnswerDelete(row)">Xoá</button>
+                    <button class="btn btn-success" (click)="onUpdate(row)">Cập nhật</button>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -35,7 +40,7 @@
                 <label>Email:</label>
                 <input type="email" id="email" class="form-control" name="email" [(ngModel)]="detailItem.email" required email>
             </div>
-            <div class="form-group">
+            <div class="form-group" *ngIf="detailItem.id == 0">
                 <label>Password:</label>
                 <input type="password" id="password" class="form-control" name="password" [(ngModel)]="detailItem.password" required>
             </div>
@@ -50,7 +55,7 @@
                     <option value = "admin" >Admin</option>
                 </select>
             </div>
-            <button class="btn btn-primary" type="submit" (click)="onAddAccount()">Register</button>
+            <button class="btn btn-primary" type="submit" (click)="onSave()">OK</button>
         </form>
         <button class="btn btn-danger" (click)="closeModal('custom-modal-1');">Close</button>
     </div>
@@ -59,12 +64,25 @@
 <jw-modal id="custom-modal-2">
     <form>
         <div class="form-group">
-            <label>rePassword</label>
-            <input type="password" class="form-control" [(ngModel)]="rePassword" required>
+            <label>Current Password</label>
+            <input type="password" class="form-control" name="currentPassword" [(ngModel)]="passwordItem.currentPassword" required>
         </div>
         <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" [(ngModel)]="Password" required>
+            <label>New Password</label>
+            <input type="password" class="form-control" name="newPassword" [(ngModel)]="passwordItem.password" required>
         </div>
+        <div class="form-group">
+            <label>RePassword</label>
+            <input type="password" class="form-control" name="rePassword" [(ngModel)]="passwordItem.rePassword" required>
+        </div>
+        <button class="btn btn-primary" type="submit" (click)="onUpdatePassword()">Save</button>
     </form>
+    <button class="btn btn-danger" (click)="closeModal('custom-modal-2');">Close</button>
+</jw-modal>
+
+<jw-modal id="custom-modal-3">
+    Bạn có chắc muốn xá user :{{deleteItem.fullname}}
+    <br />
+    <button class="btn btn-primary" type="submit" (click)="onDelete()">OK</button>
+    <button class="btn btn-danger" (click)="closeModal('custom-modal-3');">Close</button>
 </jw-modal>

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule} from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -16,12 +16,13 @@ import { HeaderAdminComponent } from './admin/header-admin/header-admin.componen
 import { ModalModule } from './_modal';
 import { ContentAdminComponent } from './admin/content-admin/content-admin.component';
 import { MenuAdminComponent } from './admin/menu-admin/menu-admin.component';
+import { AuthService } from './shared/auth-service';
 
 const appRoutes: Routes = [
-  { path:'', component: LoginComponent },
-  { path:'user', component: UserComponent },
-  { path:'admin', component: AdminComponent },
-  { path:'404', component: Error404Component },
+  { path: '', component: LoginComponent },
+  { path: 'user', component: UserComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: '404', component: Error404Component },
 ];
 
 @NgModule({
@@ -45,7 +46,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ModalModule,
   ],
-  providers: [ ],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

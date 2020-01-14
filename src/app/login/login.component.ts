@@ -3,6 +3,7 @@ import { NgForm, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CssSelector } from '@angular/compiler';
 import { LoginService } from './login.service';
+import { AuthService} from '../shared/auth-service';
 
 @Component({
   selector: 'app-login',
@@ -16,9 +17,9 @@ export class LoginComponent implements OnInit {
   email: string = '';
   password: string = '';
   constructor(private router: Router,
-    private loginService: LoginService) { }
-  role = '';;
-  auth: any;
+    private loginService: LoginService,
+    public auth: AuthService) { }
+  role = '';
   ngOnInit() {
   }
   
@@ -30,14 +31,14 @@ export class LoginComponent implements OnInit {
       resp => {
         //snackBarRef.dismiss();
         
-        this.auth = resp.body;
-        console.log(this.auth.role);
+        this.auth.UserInfo = resp.body;
+        console.log(this.auth.UserInfo.role);
         localStorage.setItem("userInfor",JSON.stringify(resp.body));
-        localStorage.setItem("token",this.auth.token);
-        if(this.auth.role === 'admin'){
+        localStorage.setItem("token",this.auth.UserInfo.token);
+        if(this.auth.UserInfo.role === 'admin'){
           this.router.navigate(['admin']);
         }
-        else if(this.auth.role === 'user'){
+        else if(this.auth.UserInfo.role === 'user'){
           this.router.navigate(['user']);
         }
         else{

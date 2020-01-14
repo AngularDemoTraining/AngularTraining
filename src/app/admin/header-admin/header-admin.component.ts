@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from './header-admin.service';
-import { ModalService } from '../../_modal';
-import { from } from 'rxjs';
+import {AuthService} from '../../shared/auth-service';
+
 @Component({
   selector: 'app-header-admin',
   templateUrl: './header-admin.component.html',
@@ -9,26 +9,11 @@ import { from } from 'rxjs';
   providers: [AccountService]
 })
 export class HeaderAdminComponent implements OnInit {
-
-  detailItem: any = { fullname: '', email: '', password: '', phone: '', role: '' };
-  listItem: any = [];
+  email: string = this.auth.UserInfo.email;
   constructor(private accountService: AccountService,
-    private modalService: ModalService) { }
+    public auth:AuthService
+    ) { }
 
   ngOnInit() {
   }
-
-  openModal(id: string) {
-    this.modalService.open(id);
-  }
-
-  closeModal(id: string) {
-    this.modalService.close(id);
-  }
-
-  layDsUser() {
-
-  }
-
- 
 }
