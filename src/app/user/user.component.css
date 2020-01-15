@@ -33,6 +33,9 @@ ul {
     list-style: none;
     height: 100%;
 }
+ul li{
+    cursor: pointer;
+}
 a{
     display: inline-block;
 }
