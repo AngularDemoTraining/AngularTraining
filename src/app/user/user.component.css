@@ -1,13 +1,14 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
 }
+
 .vertical-menu {
     width: 4vw;
     left: 0;
     top: 0;
     position: fixed;
-    background-color: blue;
+    background-color: #e8de7d;
     height: 100vh;
     z-index: 2;
 }
@@ -18,7 +19,6 @@
     left: 0;
     width: 100vw;
     height: 10vh;
-    background-color: brown;
     padding-left: 4vw;
 }
 
@@ -27,20 +27,23 @@
     padding-left: 4vw;
     background-color: burlywood;
     width: 100vw;
-    height: 50vh;
+    height: 100vh;
 }
-ul {
+
+.vertical-menu ul {
     list-style: none;
     height: 100%;
 }
-ul li{
+.vertical-menu ul li{
     cursor: pointer;
+    border-bottom: 1px solid lightgray;
 }
-a{
+.vertical-menu a{
+    border-bottom: 1px solid black;
     display: inline-block;
 }
-img{
-   
+
+.vertical-menu img {
     width: 100%;
     height: 100%;
 }
