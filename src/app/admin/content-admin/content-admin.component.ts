@@ -62,13 +62,12 @@ export class ContentAdminComponent implements OnInit {
       resp => {
         console.log(resp.body);
         if (resp.body.error == null || resp.body.error == undefined) {
-          console.log('Them thanh cong');
+          alert('Them thanh cong');
           this.closeModal('custom-modal-1');
           this.layDsUser();
         }else{
-          console.log("Them khong thanh cong");
+          alert("Them khong thanh cong");
         }
-        
       }
     )
   }
@@ -88,9 +87,10 @@ export class ContentAdminComponent implements OnInit {
       resp => {
         console.log(resp.body);
         if (resp.body.error == null || resp.body.error == undefined) {
-          console.log('doi pass thanh cong');
+          alert('Doi pass thanh cong');
+          this.closeModal('custom-modal-1');
         } else {
-          console.log('doi pass ko thanh cong');
+          alert('Doi pass ko thanh cong');
         }
 
       }
