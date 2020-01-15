@@ -1,7 +1,7 @@
-<div class="container">
-    <button class="btn btn-outline-primary" (click)="onCreate()">Thêm tài khoản</button>
+<div class="container-fluid">
+    <button class="btn btn-outline-primary" (click)="onCreate()">Thêm tài khoản</button> |
     <button class="btn btn-outline-primary" (click)="openModal('custom-modal-2')">Đổi mật khẩu</button>
-    <table class="table">
+    <table class="table main">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
@@ -20,7 +20,7 @@
                 <td>{{row.fullname}}</td>
                 <td>{{row.role}}</td>
                 <td>
-                    <button class="btn btn-danger" (click)="AnswerDelete(row)">Xoá</button>
+                    <button class="btn btn-danger" (click)="AnswerDelete(row)">Xoá</button> |
                     <button class="btn btn-success" (click)="onUpdate(row)">Cập nhật</button>
                 </td>
             </tr>

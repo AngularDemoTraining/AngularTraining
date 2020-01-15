@@ -12,8 +12,7 @@ import { AuthService} from '../shared/auth-service';
   providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('f', { static: false }) loginForm: NgForm;
-
+  
   email: string = '';
   password: string = '';
   constructor(private router: Router,

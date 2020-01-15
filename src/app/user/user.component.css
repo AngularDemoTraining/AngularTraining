@@ -1,0 +1,27 @@
+.vertical-menu {
+    width: 4vw;
+    left: 0;
+    top: 0;
+    position: fixed;
+    background-color: blue;
+    height: 100vh;
+    z-index: 2;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    background-color: brown;
+    padding-left: 4vw;
+}
+
+.content {
+    padding-top: 10vh;
+    padding-left: 4vw;
+    background-color: burlywood;
+    width: 100vw;
+    height: 50vh;
+}
