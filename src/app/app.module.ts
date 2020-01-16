@@ -17,10 +17,15 @@ import { ModalModule } from './_modal';
 import { ContentAdminComponent } from './admin/content-admin/content-admin.component';
 import { MenuAdminComponent } from './admin/menu-admin/menu-admin.component';
 import { AuthService } from './shared/auth-service';
+import { UserContentComponent } from './user/user-content/user-content.component';
+import { DetailOrderComponent } from './user/user-content/detail-order/detail-order.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'user', component: UserComponent },
+  { path: 'user', component: UserComponent,children: [
+    { path: ':id', component: UserContentComponent},
+    { path: ':id/detail-order', component: DetailOrderComponent}
+  ]},
   { path: 'admin', component: AdminComponent },
   { path: '404', component: Error404Component },
 ];
@@ -38,6 +43,8 @@ const appRoutes: Routes = [
     HeaderAdminComponent,
     ContentAdminComponent,
     MenuAdminComponent,
+    UserContentComponent,
+    DetailOrderComponent,
   ],
   imports: [
     BrowserModule,

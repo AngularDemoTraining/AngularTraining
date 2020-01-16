@@ -20,12 +20,16 @@
     width: 100vw;
     height: 10vh;
     padding-left: 4vw;
+   
+}
+.header nav.navbar {
+    background-color: #26b5da;
 }
 
 .content {
     padding-top: 10vh;
     padding-left: 4vw;
-    background-color: burlywood;
+    background-color: #ecebeaba;
     width: 100vw;
     height: 100vh;
 }
