@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-info-change.component.css']
 })
 export class UserInfoChangeComponent implements OnInit {
-  newData = {};
+  newData:{ id: any; email: any; fullname: any; phone: any; } = {id:'', email: '',fullname:'',phone:''};
   constructor(private adminService: AdminService,private router:Router) { }
   errorMesaage : string =null
   ngOnInit() {

@@ -8,7 +8,7 @@ import { UserService } from './../user.service';
   styleUrls: ['./order-detail.component.css']
 })
 export class OrderDetailComponent implements OnInit {
-  orderDetail : {};
+  orderDetail :{product_name:'', price:0,phone:'', fullname:'', email:'',description:'', image_urls:'',created_at:''} = {product_name:'', price:0,phone:'', fullname:'', email:'',description:'', image_urls:'',created_at:''};
   constructor(private route: ActivatedRoute,private userService :UserService) { }
   ngOnInit() {
     this.userService.getOrder(this.route.snapshot.params['id']).subscribe(resp => {
