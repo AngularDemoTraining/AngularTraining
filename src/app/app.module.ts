@@ -16,6 +16,12 @@ import { Component } from '@angular/core';
 import { CreateOrderComponent } from './components/user-page/create-order/create-order.component';
 import { OrderListComponent } from './components/user-page/order-list/order-list.component';
 import { OrderDetailComponent } from './components/user-page/order-detail/order-detail.component';
+import { UserRegisterComponent } from './components/addmin-page/user-register/user-register.component';
+import { UserManageComponent } from './components/addmin-page/user-manage/user-manage.component';
+import { UserInfoChangeComponent } from './components/addmin-page/user-info-change/user-info-change.component';
+import { UserChangePasswordComponent } from './components/addmin-page/user-change-password/user-change-password.component';
+import { ChangePasswordUserComponent } from './components/user-page/change-password-user/change-password-user.component';
+import { SetPasswordComponent } from './components/addmin-page/set-password/set-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +34,13 @@ import { OrderDetailComponent } from './components/user-page/order-detail/order-
     UserPageComponent,
     CreateOrderComponent,
     OrderListComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    UserRegisterComponent,
+    UserManageComponent,
+    UserInfoChangeComponent,
+    UserChangePasswordComponent,
+    ChangePasswordUserComponent,
+    SetPasswordComponent
   ],
   imports: [
 

@@ -1,0 +1,26 @@
+<table class="table main">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">email</th>
+            <th scope="col">phone</th>
+            <th scope="col">fullname</th>
+            <th scope="col">role</th>
+            <th scope="col">#</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userList, let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.fullname}}</td>
+            <td>{{user.role}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="onDelete(user.id)">Xoá</button> |
+                <button class="btn btn-success" (click)="onUpdateInfo(user)">Cập nhật</button> | 
+                <button class="btn btn-primary" (click)="onSetPassword(user)">Set Password</button> 
+            </td>
+        </tr>
+    </tbody>
+</table>

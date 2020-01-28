@@ -15,6 +15,9 @@ export class UserPageComponent implements OnInit {
  
   constructor(private userService: UserService, private authService: AuthServiceService) { }
   ngOnInit() {
+    this.authService.user.subscribe(resp => {
+      this.role = resp.role
+    })
   }
  
 }
