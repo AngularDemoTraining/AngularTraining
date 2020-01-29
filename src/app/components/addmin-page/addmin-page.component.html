@@ -16,10 +16,14 @@
         <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
           <a [routerLink]="['/user/orderList']" class="nav-link">Go To User Page<span class="sr-only"></span></a>
         </li>
+        <li class="nav-item "  (click)="onLogOut()">
+          <a  class="nav-link">Thoát<span class="sr-only"></span></a>
+        </li>
       </ul>
     </div>
   </nav>
 </div>
 <div class="content">
+  <b>Tên người dùng: </b> {{fullName}}
   <router-outlet></router-outlet>
 </div>
