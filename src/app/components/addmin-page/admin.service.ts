@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminService {
+  userList = new BehaviorSubject<any>(null)
   userInfo = new BehaviorSubject<any>(null)
   setPasswordUser = new BehaviorSubject<any>(null);
   constructor(private http: HttpClient) { }

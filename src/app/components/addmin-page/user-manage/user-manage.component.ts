@@ -11,17 +11,17 @@ export class UserManageComponent implements OnInit {
   userList = [];
   constructor(private adminService: AdminService,private router: Router) { }
   ngOnInit() {
-    this.getAlluser()
+   this.getAlluser()
   }
   private getAlluser() {
     this.adminService.getAllUser().subscribe(resp => {
-      console.log(resp)
       this.userList = resp.body.data;
     })
   }
   onDelete(id: number) {
     this.adminService.deleteUser(id).subscribe(resp => {
        this.getAlluser();
+       console.log(resp)
     })
   }
   onUpdateInfo(user){

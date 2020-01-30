@@ -22,6 +22,7 @@ import { UserInfoChangeComponent } from './components/addmin-page/user-info-chan
 import { UserChangePasswordComponent } from './components/addmin-page/user-change-password/user-change-password.component';
 import { ChangePasswordUserComponent } from './components/user-page/change-password-user/change-password-user.component';
 import { SetPasswordComponent } from './components/addmin-page/set-password/set-password.component';
+import { ModalModule } from './components/_modal';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,15 +41,14 @@ import { SetPasswordComponent } from './components/addmin-page/set-password/set-
     UserInfoChangeComponent,
     UserChangePasswordComponent,
     ChangePasswordUserComponent,
-    SetPasswordComponent
+    SetPasswordComponent,
   ],
   imports: [
-
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-
+    ModalModule,
   ],
   providers: [
     // {
