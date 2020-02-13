@@ -1,52 +1,62 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { UserComponent } from './user/user.component';
-import { AdminComponent } from './admin/admin.component';
-import { Error404Component } from './error404/error404.component';
-import { HeaderComponent } from './header/header.component';
-import { MenuComponent } from './menu/menu.component';
-import { ContentComponent } from './content/content.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LeftMenuComponent } from './components/left-menu/left-menu.component';
+import { ContentComponent } from './components/content/content.component';
+import { Error404Component } from './components/error404/error404.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { AddminPageComponent } from './components/addmin-page/addmin-page.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HeaderAdminComponent } from './admin/header-admin/header-admin.component';
-import { ModalModule } from './_modal';
-import { ContentAdminComponent } from './admin/content-admin/content-admin.component';
-import { MenuAdminComponent } from './admin/menu-admin/menu-admin.component';
-import { AuthService } from './shared/auth-service';
-
-const appRoutes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'user', component: UserComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: '404', component: Error404Component },
-];
-
+import { AuthInterceptorService } from './components/auth/auth-interceptor.service';
+import { Component } from '@angular/core';
+import { CreateOrderComponent } from './components/user-page/create-order/create-order.component';
+import { OrderListComponent } from './components/user-page/order-list/order-list.component';
+import { OrderDetailComponent } from './components/user-page/order-detail/order-detail.component';
+import { UserRegisterComponent } from './components/addmin-page/user-register/user-register.component';
+import { UserManageComponent } from './components/addmin-page/user-manage/user-manage.component';
+import { UserInfoChangeComponent } from './components/addmin-page/user-info-change/user-info-change.component';
+import { UserChangePasswordComponent } from './components/addmin-page/user-change-password/user-change-password.component';
+import { ChangePasswordUserComponent } from './components/user-page/change-password-user/change-password-user.component';
+import { SetPasswordComponent } from './components/addmin-page/set-password/set-password.component';
+import { ModalModule } from './components/_modal';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    UserComponent,
-    AdminComponent,
-    Error404Component,
     HeaderComponent,
-    MenuComponent,
+    LeftMenuComponent,
     ContentComponent,
-    HeaderAdminComponent,
-    ContentAdminComponent,
-    MenuAdminComponent,
+    Error404Component,
+    AuthComponent,
+    AddminPageComponent,
+    UserPageComponent,
+    CreateOrderComponent,
+    OrderListComponent,
+    OrderDetailComponent,
+    UserRegisterComponent,
+    UserManageComponent,
+    UserInfoChangeComponent,
+    UserChangePasswordComponent,
+    ChangePasswordUserComponent,
+    SetPasswordComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes),
     ModalModule,
   ],
-  providers: [AuthService],
+  providers: [
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: AuthInterceptorService,
+    //   multi: true
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
