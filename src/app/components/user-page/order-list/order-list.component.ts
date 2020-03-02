@@ -10,7 +10,7 @@ import { UserService } from './../user.service';
 export class OrderListComponent implements OnInit {
   role = '';
   constructor(private authService: AuthServiceService, private userService: UserService) { }
-
+  validOrderList = [];
   ngOnInit() {
     this.authService.user.subscribe(resp => {
       if (resp.role === 'user') {
@@ -20,6 +20,7 @@ export class OrderListComponent implements OnInit {
         this.userService.getOrderList().subscribe(orderList => {
           console.log(orderList.body.data)
           this.userService.validOrderList = orderList.body.data;
+          this.validOrderList= this.userService.validOrderList
         })
         this.role = 'admin'
       }
@@ -32,6 +33,7 @@ export class OrderListComponent implements OnInit {
         const authId = this.authService.getIdUser();
         if (order.User.id === authId) {
           this.userService.validOrderList.push(order)
+          this.validOrderList= this.userService.validOrderList
         }
       })
     })

@@ -20,7 +20,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let order of this.userService.validOrderList; let i = index">
+            <tr *ngFor="let order of this.validOrderList; let i = index">
               <th>{{i + 1}}</th>
               <th>{{order.product_name}}</th>
               <th *ngIf="role ==='admin'">{{order.User.fullname}}</th>
